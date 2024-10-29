@@ -1,6 +1,6 @@
 # ft_transcendence
 
-The project `ft_transcendence` is about creating a website for the mighty Pong contest! Thanks to our website, users will play Pong with others. We had to provide a nice user interface and real-time multiplayer online games!
+The project `ft_transcendence` is about creating a website for the mighty Pong contest ! Thanks to our website, users will play Pong with others. We had to provide a nice user interface and real-time multiplayer online game !
 
 Mates: **mafissie**, **slepetit**, **ajoliet** and **arforgea**
 
@@ -8,7 +8,9 @@ Score: **105%**
 
 ## Modules
 
-For this project, we must achieve 7 majors (2 minors = 1 major). Here are the one we made (7.5) :
+For this project, we must achieve 7 majors (2 minors = 1 major).
+
+Here are the ones we made (7.5) :
 
 - Web
 
@@ -34,6 +36,8 @@ For this project, we must achieve 7 majors (2 minors = 1 major). Here are the on
          - Server-Side Rendering (SSR) Integration (minor)
 
 ## Frames' preview
+
+Here are some of the frame you will see on our project. As you can see, we choose `Windows 98` as theme.
 
 Sign in / Sign up frames:
 
