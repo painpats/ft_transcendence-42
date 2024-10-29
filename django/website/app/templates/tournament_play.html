@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Tournament game" %} - PONGOWS{% endblock %}
+
+{% block content %}
+
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "Tournament Game" %}</h2>
+            <div id="tournament-container" style="position: relative; z-index: 1; background-color: black; height: 400px; width: 100%;">
+                <div id="tournament-container" style="position: absolute; z-index: 1; background-color: black;">
+                    <form id="tournament-form" action="{% url 'tournament_play' match.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" id="playerScore" name="player_score">
+                        <input type="hidden" id="opponentScore" name="opponent_score">
+                        <canvas id="pongCanvas" class="w-100 h-100" style="border: 1px solid white;"></canvas>
+                    </form>
+                    <script type="module" src="{% static 'pong_tournament.js' %}"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

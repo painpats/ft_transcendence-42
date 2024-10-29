@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Tournament's matches" %} - PONGOWS{% endblock %}
+
+{% block content %}
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "MATCHES" %}</h2>
+            
+            <div class="tab-content">
+                <div class="text-center">
+                    {% for match in matches %}
+                    <p><strong>{{ match.player1.alias }}</strong> - <strong>{{ match.player2.alias }}</strong></p>
+                    <a href="{% url 'tournament_play' match.id %}" class="btn win95-btn">{% trans "Start" %}</a>
+                    <hr>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

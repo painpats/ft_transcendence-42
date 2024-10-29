@@ -1,0 +1,128 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %} - PONGOWS{% endblock %}
+
+{% block content %}
+
+<!-- Friends -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 win95-box">
+            <h2 class="title-bar text-center">{% trans "FRIENDS" %}</h2>
+
+            <div class="tab-content p-3 text-center">
+                {% if friends %}
+                <ul class="list-unstyled">
+                    {% for friend in friends %}
+                        <li class="friend-block d-flex align-items-center mb-3 p-2">
+                            <!-- Profile image -->
+                            <div class="friend-avatar">
+                                {% if friend.friend.avatar %}
+                                <img src="{{ friend.friend.avatar.url }}" alt="{{ friend.friend.username }}'s avatar" class="img-fluid">
+                                {% else %}
+                                <img src="{% static 'default.png' %}" alt="{% trans 'Default Avatar' %}" class="img-fluid">
+                                {% endif %}
+                            </div>
+
+                            <!-- Friend's name, email and status -->
+                            <div class="friend-info flex-grow-1">
+                                <p class="m-0"><strong>{{ friend.friend.username }}</strong></p>
+                                {% if friend.friend.is_online %}
+                                <p class="card-text"><strong>{% trans "Status:" %}</strong>🟢 {% trans "Online" %}</p>
+                                {% else %}
+                                <p class="card-text"><strong>{% trans "Status:" %}</strong>🔴 {% trans "Offline" %}</p>
+                                {% endif %}
+                            </div>
+
+                            <!-- Match history button -->
+                            <a href="{% url 'friend_profile' friend.friend.username %}" data-url="{% url 'friend_profile' friend.friend.username %}" class="btn fripro-btn">{% trans "Friend's profile" %}</a>
+                            <!-- Remove button -->
+                            <form method="post" class="friend-remove">
+                                {% csrf_token %}
+                                <input type="hidden" name="remove_friend" value="{{ friend.id }}">
+                                <button type="submit" class="btn win95-btn remove-btn">{% trans "Remove" %}</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p><i>{% trans "No friends yet" %}</i></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Add friends -->
+<div class="container win95-container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+        <h2 class="title-bar text-center">{% trans "ADD FRIENDS" %}</h2>
+        
+        <div class="tab-content">
+            <div class="text-center">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <label for="add_friend"><strong>{% trans "Pseudo" %}</strong></label>
+                        <input type="text" class="form-control" id="add_friend" name="add_friend" required>
+                        <button type="submit" class="btn btn-primary mt-3">{% trans "Add" %}</button>
+                        {% if messages %}
+                        <div class="alert alert-danger">
+                            {% for message in messages %}
+                            <div>{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+
+<!-- Invitations -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "INVITATIONS" %}</h2>
+
+            <div class="tab-content p-3">
+                <div class="text-center">
+                    {% if received_invitations %}
+                    <ul class="list-unstyled">
+                        {% for invitation in received_invitations %}
+                            <li class="invitation-item mb-3 p-2" style="border: 1px solid #000; background-color: #e0e0e0;">
+                                <p><strong>{{ invitation.user.username }}</strong> {% trans "wants to be your friend." %}</p>
+                                <div class="button-group" style="display: flex; justify-content: center;">
+                                    <form method="post" style="margin-right: 10px;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="accept_invitation" value="{{ invitation.id }}">
+                                        <button type="submit" class="btn win95-btn accept-btn">{% trans "Accept" %}</button>
+                                    </form>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="decline_invitation" value="{{ invitation.id }}">
+                                        <button type="submit" class="btn win95-btn decline-btn">{% trans "Decline" %}</button>
+                                    </form>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p><i>{% trans "No invitations" %}</i></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+{% endblock %}

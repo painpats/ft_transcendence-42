@@ -1,0 +1,334 @@
+body {
+    background-color: #008080;
+    font-family: "MS Sans Serif", Geneva, sans-serif;
+    margin: 0;
+    padding-bottom: 60px;
+}
+
+.title-bar {
+    color: black;
+    font-family: "MS Sans Serif", Geneva, serif;
+}
+
+/* ************************* */
+/*       FOLDERS-ICON        */
+/* ************************* */
+.links .link-item img.icon {
+    width: 32px;
+    height: 32px;
+}
+
+
+/* ************************* */
+/*          TASKBAR          */
+/* ************************* */
+.taskbar {
+    background-color: #C0C0C0;
+    border-top: 2px solid white;
+    padding: 5px 10px;
+}
+
+.btn-win95 {
+    background-color: #c3c3c3;
+    border: 2px solid #808080;
+    color: black;
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+    padding: 0.5vw 2vw;
+    margin: 0.5vw;
+    box-shadow: 0.5vw 0.5vw 0px #ffffff, -0.5vw -0.5vw 0px #000000;
+    text-shadow: 0.2vw 0.2vw 0px #ffffff;
+    font-size: 1.2vw;
+}
+
+.btn-win95:active {
+    box-shadow: inset 0.5vw 0.5vw 0px #ffffff, inset -0.5vw -0.5vw 0px #000000;
+}
+
+.dropdown-toggle {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+}
+
+/* This is for hidding the default arrow of the dropdown */
+.dropdown-toggle::after {
+    display: none;
+}
+
+/* Pongows menu button on the taskbar */
+.dropdown-img {
+    max-width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    background-color: #c3c3c3;
+    border: 2px solid #808080;
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif;
+}
+
+.dropdown-item {
+    color: black;
+    padding: 1vh 2vh;
+    font-size: 1.4vw;
+}
+
+.dropdown-item:hover {
+    background-color: #000080;
+    color: white;
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    bottom: 0;
+    left: 100%;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    border: 2px solid #808080;
+    background-color: #c3c3c3;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item::after {
+    float: right;
+    margin-left: 0.5vw;
+}
+
+/* Status Indicator */
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0000c9;
+    border: 1px solid #000;
+    margin-left: 10px;
+}
+
+.status-online {
+    background-color: #25af25a2;
+}
+
+.status-offline {
+    background-color: #ff0000c9;
+}
+
+@media (max-width: 768px) {
+    .status-indicator {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* ************************* */
+/*          WINDOWS          */
+/* ************************* */
+.modal-window {
+    position: fixed;
+    top: 55%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background-color: #c3c3c3;
+    border: 2px solid #808080;
+    padding: 30px;
+    z-index: 1000;
+    display: none;
+    max-width: 700px;
+    box-shadow: 0.1vw 0.1vw 1px #000000, -0.1vw -0.1vw 1px #ffffff;
+}
+
+.modal-header {
+    background-color: #000080;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 3px solid #000;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.content img {
+    max-width: 100%;
+    height: auto;
+    flex: 1;
+    margin-right: 10px;
+}
+.text-section {
+    flex: 2;
+}
+h1 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+p {
+    margin: 0;
+}
+hr {
+    border: 0;
+    border-top: 1px solid black;
+    margin: 10px 0;
+}
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.btn-back, .btn-play {
+    width: 80px;
+    background-color: #C0C0C0;
+    border: 2px solid #000;
+    height: 30px;
+}
+.btn-back:disabled {
+    color: grey;
+    border-color: #808080;
+    cursor: not-allowed;
+}
+.btn-cancel {
+    background-color: #C0C0C0;
+    border: 2px solid #000;
+    height: 30px;
+}
+
+/* ************************* */
+/*           MAN             */
+/* ************************* */
+body {
+    font-family: monospace;
+}
+
+.terminal {
+    background-color: #212529;
+    padding: 20px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: medium;
+}
+
+h9 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
+/* ******************************************************* */
+/* Media queries to adjust styles according to screen size */
+/* ******************************************************* */
+@media (max-width: 768px) {
+    .btn-win95 {
+        padding: 2px 6px;
+        font-size: 1em;
+    }
+
+    .dropdown-item {
+        padding: 5px 8px;
+        font-size: 1em;
+    }
+
+    /* small screen */
+    .dropdown-submenu > .dropdown-menu {
+        left: 50%;
+        bottom: 100%;
+    }
+
+    /* window */
+    .modal-window {
+        font-size: 0.75em;
+        width: 80%;
+    }
+    .modal-window .modal-content .content img.pong-icon {
+        padding: 5%;
+    }
+}
+
+/* ************************* */
+/*          FRIENDS          */
+/* ************************* */
+
+.friend-block {
+    background-color: #e0e0e0;
+    border: 2px solid #808080;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.friend-avatar img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border: 2px solid #000;
+    margin-right: 15px;
+}
+
+.friend-info {
+    font-family: 'MS Sans Serif', sans-serif;
+    color: black;
+}
+
+.friend-remove .win95-btn {
+    font-family: 'MS Sans Serif', sans-serif;
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.friend-remove .win95-btn:active {
+    border-style: inset;
+}
+
+.friend-remove .remove-btn {
+    background-color: #da3518;
+}
+
+.fripro-btn {
+    font-family: 'MS Sans Serif', sans-serif;
+    background-color: rgb(212, 75, 98);
+    border: 2px solid #808080;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ************************* */
+/*       INVITATIONS         */
+/* ************************* */
+.win95-btn {
+    font-family: 'MS Sans Serif', sans-serif;
+    background-color: #C0C0C0;
+    border: 2px solid #808080;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.win95-btn:active {
+    border-style: inset;
+}
+
+.accept-btn {
+    background-color: #50c050;
+}
+
+.decline-btn {
+    background-color: #da3518;
+}

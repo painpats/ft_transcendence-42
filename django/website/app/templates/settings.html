@@ -1,0 +1,113 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Settings" %} - PONGOWS{% endblock %}
+
+{% block content %}
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "SETTINGS" %}</h2>
+
+            {% if messages %}
+            <div class="alert alert-danger">
+                {% for message in messages %}
+                    <div>{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- Change Avatar -->
+            <div class="section">
+                <h3>{% trans "Change Avatar" %}</h3>
+                {% if member.avatar %}
+                <img src="{{ member.avatar.url }}" alt="{% trans 'User Avatar' %}" class="img-fluid rounded-circle" style="max-width: 150px;">
+                {% else %}
+                <img src="{% static 'default.png' %}" alt="{% trans 'Default Avatar' %}" class="img-fluid rounded-circle" style="max-width: 150px;">
+                {% endif %}
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <label for="avatar">{% trans "Change avatar" %}</label>
+                        <input type="file" id="avatar" name="avatar" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3" name="update_avatar">{% trans "Update Avatar" %}</button>
+                </form>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary mt-3" name="delete_avatar">{% trans "Delete avatar" %}</button>
+                </form>
+            </div>
+            <hr>
+
+            <!-- Change Pseudo -->
+            <div class="section">
+                <h3>{% trans "Change Pseudo" %}</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <label for="username">{% trans "Change pseudo" %}</label>
+                        <input type="text" id="username" name="username" class="form-control" maxlength="15" placeholder="{{ member.username }}" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="current_password_pseudo">{% trans "Password" %}</label>
+                        <input type="password" id="current_password_pseudo" name="current_password_pseudo" class="form-control" placeholder="{% trans 'Password' %}" required>
+                    </div>                    
+                    <button type="submit" class="btn btn-primary mt-3" name="update_pseudo">{% trans "Update Pseudo" %}</button>
+                </form>
+            </div>
+            <hr>
+
+            <!-- Change Email -->
+            <div class="section">
+                <h3>{% trans "Change Email" %}</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <label for="email">{% trans "Change email" %}</label>
+                        <input type="email" id="email" name="email" class="form-control" maxlength="255" placeholder="{{ member.email }}" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="current_password_email">{% trans "Password" %}</label>
+                        <input type="password" id="current_password_email" name="current_password_email" class="form-control" placeholder="{% trans 'Password' %}" required>
+                    </div>                    
+                    <button type="submit" class="btn btn-primary mt-3" name="update_email">{% trans "Update Email" %}</button>
+                </form>
+            </div>
+            <hr>
+
+            <!-- Change Password -->
+            <div class="section">
+                <h3>{% trans "Change Password" %}</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <label for="new_password">{% trans "New Password" %}</label>
+                        <input type="password" id="new_password" name="new_password" class="form-control" placeholder="{% trans 'New password' %}" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="confirm_new_password">{% trans "Confirm New Password" %}</label>
+                        <input type="password" id="confirm_new_password" name="confirm_new_password" class="form-control" placeholder="{% trans 'Confirm new password' %}" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="current_password_password">{% trans "Current Password" %}</label>
+                        <input type="password" id="current_password_password" name="current_password_password" class="form-control" placeholder="{% trans 'Current password' %}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3" name="update_password">{% trans "Update Password" %}</button>
+                </form>
+            </div>
+            <hr>
+
+            <div class="section">
+                <h3>{% trans "Delete my data and my account" %}</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger mt-3" name="delete_account">{% trans "Delete" %}</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

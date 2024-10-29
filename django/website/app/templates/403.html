@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "ERROR 403" %} - PONGOWS{% endblock %}
+
+{% block content %}
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "ERROR 403" %}</h2>
+            
+            <div class="tab-content">
+                <div class="text-center">
+                    <p>{% trans "FORBIDDEN" %}</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

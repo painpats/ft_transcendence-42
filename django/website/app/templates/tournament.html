@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Tournament" %} - PONGOWS{% endblock %}
+
+{% block content %}
+
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "TOURNAMENT" %}</h2>
+            
+            <div class="tab-content">
+                <div class="content">
+                    <div class="text-section">
+                        <h1 class="font-weight-bold">{% trans "What is that?" %}</h1>
+                        <p>{% trans "A tournament requires 4 or 8 players to take place, where each player will choose their own alias to participate. The one who wins all their games will be the lucky winner; one defeat and it's over. Good luck, pong lovers!" %}</p>
+                        <p>{% trans "The tournament will take place on the host's account and everyone will have to register on their own account." %}</p>
+                        <hr>
+
+                        {% if messages %}
+                        <div class="alert alert-danger">
+                            {% for message in messages %}
+                                <div>{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    
+                        <h1 class="font-weight-bold">{% trans "My tournaments" %}</h1>
+                        {% if tournaments_host %}
+                            {% for tournament in tournaments_host %}
+                                <p>{{ tournament.host.username }} - {{ tournament.number_of_players }} {% trans "players" %}</p>
+                                {% if tournament.is_started %}
+                                    <a href="{% url 'tournament_matches' %}" data-url="{% url 'tournament_matches' %}" class="btn win95-btn">{% trans "Tournament's matches" %}</a>
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <p>{% trans "You are not hosting any tournaments." %}</p>
+                        {% endif %}
+                        
+                        <hr>
+                    
+                        <h1 class="font-weight-bold">{% trans "Host a tournament?" %}</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group mt-3">
+                                <label for="alias"><strong>{% trans "Alias" %}</strong></label>
+                                <input type="text" class="form-control" id="alias" name="alias" maxlength="15" required>
+                    
+                                <label for="number_players"><strong>{% trans "Number of players" %}</strong></label>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="players4" name="number_players" value="4" required>
+                                    <label class="form-check-label" for="players4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="players8" name="number_players" value="8" required>
+                                    <label class="form-check-label" for="players8">8</label>
+                                </div>
+                            </div>
+                            <button type="submit" name="create_tournament" class="btn btn-primary">{% trans "Create Tournament" %}</button>
+                        </form>
+                    
+                        <hr>
+                    
+                        <h1 class="font-weight-bold">{% trans "Join a tournament?" %}</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group mt-3">
+                                <label for="tournament_id"><strong>{% trans "Select Tournament" %}</strong></label>
+                                <select class="form-control" id="tournament_id" name="tournament_id" required>
+                                    <option value="" disabled selected>{% trans "Choose a tournament" %}</option>
+                                    {% for tournament in tournaments_unfull %}
+                                        <option value="{{ tournament.id }}">{{ tournament.host.username }} - {{ tournament.number_of_players }} {% trans "Players" %}</option>
+                                    {% empty %}
+                                        <option value="" disabled>{% trans "No tournaments available." %}</option>
+                                    {% endfor %}
+                                </select>
+                    
+                                <label for="alias_join"><strong>{% trans "Alias" %}</strong></label>
+                                <input type="text" class="form-control" id="alias_join" name="alias" maxlength="15" required>
+                            </div>
+                            <button type="submit" name="join_tournament" class="btn btn-primary">{% trans "Join Tournament" %}</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

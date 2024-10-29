@@ -1,0 +1,58 @@
+services:
+  postgresql:
+    container_name: postgresql
+    image: postgres:latest
+    volumes:
+      - postgresql_db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - transcendence
+    env_file:
+      - .env
+    restart: always
+
+  django:
+    container_name: django
+    image: django
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    volumes:
+      - ./django/website:/code
+    ports:
+      - "8000:8000"
+    networks:
+      - transcendence
+    depends_on:
+      - postgresql
+    env_file:
+      - .env
+    restart: always
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./django/website:/code
+    ports:
+      - "443:443"
+    networks:
+      - transcendence
+    depends_on:
+      - django
+    env_file:
+      - .env
+    restart: always
+
+volumes:
+  postgresql_db:
+
+networks:
+  transcendence:
+    driver: bridge
+
+# psql -U postgresusr -h localhost -d db

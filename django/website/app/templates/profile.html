@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Profile" %} - PONGOWS{% endblock %}
+
+{% block content %}
+<!-- My profile -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 win95-box">
+            <h2 class="title-bar text-center">{% trans "MY PROFILE" %}</h2>
+            <div class="row no-gutters align-items-start">
+                <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
+                    {% if member.avatar %}
+                    <img src="{{ member.avatar.url }}" alt="{% trans 'User Avatar' %}" class="img-fluid rounded-circle" style="max-width: 150px;">
+                    {% else %}
+                    <img src="{% static 'default.png' %}" alt="{% trans 'Default Avatar' %}" class="img-fluid rounded-circle" style="max-width: 150px;">
+                    {% endif %}
+                </div>
+                <div class="col-12 col-md-8 pl-md-3">
+                    <p class="card-text"><strong>{% trans "Pseudo:" %}</strong> {{ member.username }}</p>
+                    <p class="card-text"><strong>{% trans "Email:" %}</strong> {{ member.email }}</p>
+                    {% if member.is_online %}
+                    <p class="card-text"><strong>{% trans "Status:" %}</strong> {% trans "Online" %} 🟢</p>
+                    {% else %}
+                    <p class="card-text"><strong>{% trans "Status:" %}</strong> {% trans "Offline" %} 🔴</p>
+                    {% endif %}
+                    <p class="card-text"><strong>{% trans "Games played:" %}</strong> {{ dashboard.games_played }}</p>
+                    <p class="card-text"><strong>{% trans "Wins:" %}</strong> {{ dashboard.wins }}</p>
+                    <p class="card-text"><strong>{% trans "Losses:" %}</strong> {{ dashboard.losses }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Match History -->
+<div class="container win95-container"></div>
+<div class="row justify-content-center">
+    <div class="col-md-6 win95-box">
+        <h2 class="title-bar text-center">{% trans "MATCH HISTORY" %}</h2>
+        
+        <div class="tab-content">
+            <div class="text-center">
+                {% if games %}
+                    {% for game in games %}
+                        {% if game.game_type == 'C' %}
+                        <p><strong> {% trans "Classic game" %} </strong></p>
+                        {% elif game.game_type == 'B' %}
+                        <p><strong> {% trans "Bot game" %} </strong></p>
+                        {% else %}
+                        <p><strong> {% trans "Tournament game" %} </strong></p>
+                        {% endif %}
+                        <p><strong>{{ game.player_alias }}</strong> {{ game.player_points }} - {{ game.opponent_points }} <strong>{{ game.opponent_alias }}</strong></p>
+                        <p><strong>{{ game.date }}</strong></p>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <p><i>{% trans "No games played yet" %}</i></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

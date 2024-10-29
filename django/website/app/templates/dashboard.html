@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Dashboard" %} - PONGOWS{% endblock %}
+
+{% block content %}
+
+<div id="translations" style="display: none;" 
+     data-wins-vs-losses="{% trans 'Wins vs Losses' %}"
+     data-points-vs-points-against="{% trans 'Points vs Points Against' %}"
+     data-ratio="{% trans 'Ratio' %}">
+</div>
+
+<!-- Section Global Stats -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "GLOBAL GAME STATS" %}</h2>
+            <p class="card-text"><strong>{% trans "Games played:" %}</strong> {{ dashboard.games_played }}</p>
+            <div id="global-stats" class="tab-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Classic Stats -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "CLASSIC GAME STATS" %}</h2>
+            <p class="card-text"><strong>{% trans "Games played:" %}</strong> {{ dashboard.games_played_classic }}</p>
+            <div id="classic-stats" class="tab-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Bot Stats -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "BOT GAME STATS" %}</h2>
+            <p class="card-text"><strong>{% trans "Games played:" %}</strong> {{ dashboard.games_played_bot }}</p>
+            <div id="bot-stats" class="tab-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Section Tournament Stats -->
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "TOURNAMENT GAME STATS" %}</h2>
+            <p class="card-text"><strong>{% trans "Games played:" %}</strong> {{ dashboard.games_played_tournament }}</p>
+            <div id="tournament-stats" class="tab-content"></div>
+        </div>
+    </div>
+</div>
+
+<script>const stats = JSON.parse('{{ stats|escapejs }}');</script>
+<script src="{% static 'dashboard.js' %}"></script>
+
+{% endblock %}

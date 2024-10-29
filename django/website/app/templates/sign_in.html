@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign In" %} - PONGOWS{% endblock %}
+
+{% block content %}
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "SIGN IN" %}</h2>
+            
+            <div class="tab-content">
+                <form method="post" action="{% url 'sign_in' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="sign-in-email">{% trans "Email address" %}</label>
+                        <input type="email" class="form-control" id="sign-in-email" name="email" maxlength="255" placeholder="{% trans 'Enter your email' %}" value="{{ form.email.value|default_if_none:'' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sign-in-password">{% trans "Password" %}</label>
+                        <input type="password" class="form-control" id="sign-in-password" name="password" placeholder="{% trans 'Enter your password' %}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">{% trans "Login" %}</button>
+                    {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            <div>{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </form>
+                <form method="post" action="{% url 'auth_42' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-dark btn-block" action="{% url 'auth_42' %}">Auth 42</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

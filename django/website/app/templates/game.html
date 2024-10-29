@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Game" %} - PONGOWS{% endblock %}
+
+{% block content %}
+
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 win95-box">
+            <h2 class="title-bar text-center">{% trans "MANUAL" %}</h2>
+            <div class="bg-dark text-light">
+                <div class="container mt-5">
+                    <div class="terminal">
+                        <h9><strong>{% trans "Pongows Player's Manual" %}</strong></h9>
+                        <p><strong>{% trans "NAME" %}</strong></p>
+                        <p>&emsp; &emsp; game - {% trans "our version of the pong retro game" %}</p>
+                        <p><strong>SYNOPSIS</strong></p>
+                        <p><strong>&emsp; &emsp; #include &lt;paddle.h&gt;</strong></p>
+                        <p><strong>&emsp; &emsp; #include &lt;ball.h&gt;</strong></p>
+                        <p><strong>&emsp; &emsp; #include &lt;table.h&gt;</strong></p>
+                        <p><strong>&emsp; &emsp; size_t	game(const char *paddle1, const char *paddle2, int ball);</strong></p>
+                        <pre></pre>
+                        <p><strong>{% trans "DESCRIPTION" %}</strong></p>
+                        <p>&emsp; &emsp; {% trans "The" %} <strong>game()</strong> {% trans "function is a simple tennis like game. It takes two paddles and a ball. The goal is to defeat your opponent by being the first one to gain 05 points. A player gets a point once the opponent misses the ball." %}</p>
+                        <pre></pre>
+                        <p><strong>{% trans "RETURN VALUE" %}</strong></p>
+                        <p>&emsp; &emsp; {% trans "The" %} <strong>game()</strong> {% trans "function returns the number of points in the string pointed by each player’s name." %}</p>
+                        <pre></pre>
+                        <p><strong>{% trans "MOVEMENTS" %}</strong></p>
+                        <p>&emsp; &emsp; {% trans "To move the paddle, the left player will use" %} <strong>W {% trans "(up)" %}</strong> {% trans "and" %} 
+                            <strong>S {% trans "(down)" %}</strong> {% trans "and the right player will use" %} 
+                            <strong>{% trans "up arrow (up)" %}</strong> {% trans "and" %} <strong>{% trans "down arrow (down)" %}</strong>.</p>
+                        <pre></pre>
+                        <p><strong>{% trans "SEE ALSO" %}</strong></p>
+                        <p><strong>&emsp; &emsp; pong(2), {% trans "tournament" %}(4)</strong></p>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'classic' %}" class="btn btn-primary">{% trans "Classic" %}</a>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'bot' %}" class="btn btn-primary">{% trans "Bot" %}</a>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'tournament' %}" data-url="{% url 'tournament' %}" class="btn btn-primary">{% trans "Tournament" %}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

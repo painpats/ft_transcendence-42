@@ -1,0 +1,114 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}PONGOWS{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'windows-logo.png' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'sign-in.css' %}">
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+</head>
+<body>
+    <div class="container-fluid mt-5">
+
+        <!-- Layout with folders and content -->
+        <div class="row mt-4">
+            <!-- Folders Sidebar -->
+            <div class="col-md-2">
+                <div class="links text-center">
+                    {% if user.is_authenticated %}
+                    <div class="link-item mb-3">
+                        <img src="{% static 'game.png' %}" alt="{% trans 'Game Icon' %}" class="icon">
+                        <a href="{% url 'game' %}" data-url="{% url 'game' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Game" %}</a>
+                    </div>
+                    <!-- HERE put link to manual.html -->
+                    <div class="link-item mb-3">
+                        <img src="{% static 'leaderboard.png' %}" alt="{% trans 'Dashboard Icon' %}" class="icon">
+                        <a href="{% url 'dashboard' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Dashboard" %}</a>
+                    </div>
+                    <div class="link-item mb-3">
+                        <img src="{% static 'profile.png' %}" alt="{% trans 'Profile Icon' %}" class="icon">
+                        <a href="{% url 'profile' %}" data-url="{% url 'profile' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Profile" %}</a>
+                    </div>
+                    <div class="link-item mb-3">
+                        <img src="{% static 'friends.png' %}" alt="{% trans 'Friends Icon' %}" class="icon">
+                        <a href="{% url 'friends' %}" data-url="{% url 'friends' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Friends" %}</a>
+                    </div>
+                    <div class="link-item mb-3">
+                        <img src="{% static 'settings.png' %}" alt="{% trans 'Settings Icon' %}" class="icon">
+                        <a href="{% url 'settings' %}" data-url="{% url 'settings' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Settings" %}</a>
+                    </div>
+                    <div class="link-item mb-3">
+                        <img src="{% static 'trash.png' %}" alt="{% trans 'Log out Icon' %}" class="icon">
+                        <form method="POST" action="{% url 'logout' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">
+                            {% csrf_token %}
+                            <button type="submit" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover" style="border: none; background: none; padding: 0; cursor: pointer; text-align: center; width: 100%;">
+                                {% trans "Log out" %}
+                            </button>
+                        </form>
+                    </div>
+                    
+                    {% else %}
+                    <div class="link-item mb-3">
+                        <img src="{% static 'game.png' %}" alt="{% trans 'Sign in Icon' %}" class="icon">
+                        <a href="{% url 'sign_in' %}" data-url="{% url 'sign_in' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Sign In" %}</a>
+                    </div>
+                    <div class="link-item mb-3">
+                        <img src="{% static 'game.png' %}" alt="{% trans 'Sign up Icon' %}" class="icon">
+                        <a href="{% url 'sign_up' %}" data-url="{% url 'sign_up' %}" class="d-block link-dark link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{% trans "Sign Up" %}</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="col-md-10">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+
+    <!-- Taskbar -->
+    <div class="taskbar fixed-bottom">
+        <div class="container-fluid d-flex justify-content-between">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{% static 'pongows_logo_bold.png' %}" alt="pongows logo" class="dropdown-img">
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                    <!-- Settings Menu -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">{% trans "Settings" %}</a>
+                        <ul class="dropdown-menu dropdown-menu-end w-100">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">{% trans "Language" %}</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="{% url 'set_language' %}?lang=en">🇺🇸 English</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'set_language' %}?lang=fr">🇫🇷 Français</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'set_language' %}?lang=es">🇪🇦 Español</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            
+            <!-- Clock -->
+            <div class="text-center text-black">
+                <span id="clock"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{% static 'index.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

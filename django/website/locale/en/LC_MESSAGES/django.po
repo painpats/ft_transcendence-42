@@ -1,0 +1,707 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-10-19 15:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/forms.py:22 app/forms.py:154
+msgid "Password must contain at least one uppercase letter."
+msgstr ""
+
+#: app/forms.py:24 app/forms.py:156
+msgid "Password must contain at least one lowercase letter."
+msgstr ""
+
+#: app/forms.py:26 app/forms.py:158
+msgid "Password must contain at least one digit."
+msgstr ""
+
+#: app/forms.py:28 app/forms.py:160
+msgid "Password must contain at least one special character."
+msgstr ""
+
+#: app/forms.py:34 app/forms.py:84
+msgid "Username already in use."
+msgstr ""
+
+#: app/forms.py:40 app/forms.py:114
+msgid "Email already in use."
+msgstr ""
+
+#: app/forms.py:82 app/forms.py:91 app/forms.py:112 app/forms.py:121
+msgid "This field is required."
+msgstr ""
+
+#: app/forms.py:93 app/forms.py:123 app/forms.py:148
+msgid "The current password is incorrect."
+msgstr ""
+
+#: app/forms.py:150
+msgid "The new password must be different from the current password."
+msgstr ""
+
+#: app/forms.py:152
+msgid "Password must be at least 8 characters long."
+msgstr ""
+
+#: app/forms.py:162
+msgid "The new passwords do not match."
+msgstr ""
+
+#: app/forms.py:183
+msgid "User not found"
+msgstr ""
+
+#: app/forms.py:185
+msgid "You can't add yourself"
+msgstr ""
+
+#: app/forms.py:188
+msgid "An invitation with this user is already pending"
+msgstr ""
+
+#: app/forms.py:190
+msgid "Already friends"
+msgstr ""
+
+#: app/templates/400.html:6 app/templates/400.html:12
+msgid "ERROR 400"
+msgstr ""
+
+#: app/templates/400.html:16
+msgid "BAD REQUEST"
+msgstr ""
+
+#: app/templates/403.html:6 app/templates/403.html:12
+msgid "ERROR 403"
+msgstr ""
+
+#: app/templates/403.html:16
+msgid "FORBIDDEN"
+msgstr ""
+
+#: app/templates/404.html:6 app/templates/404.html:12
+msgid "ERROR 404"
+msgstr ""
+
+#: app/templates/404.html:16
+msgid "NOT FOUND"
+msgstr ""
+
+#: app/templates/500.html:6 app/templates/500.html:12
+msgid "ERROR 500"
+msgstr ""
+
+#: app/templates/500.html:16
+msgid "SERVER ERROR"
+msgstr ""
+
+#: app/templates/bot.html:5 app/templates/friend_profile.html:50
+#: app/templates/profile.html:52
+msgid "Bot game"
+msgstr ""
+
+#: app/templates/bot.html:12 app/templates/classic.html:12
+msgid "Classic Game"
+msgstr ""
+
+#: app/templates/classic.html:5 app/templates/friend_profile.html:48
+#: app/templates/profile.html:50
+msgid "Classic game"
+msgstr ""
+
+#: app/templates/dashboard.html:5 app/templates/index.html:32
+msgid "Dashboard"
+msgstr ""
+
+#: app/templates/dashboard.html:10
+msgid "Wins vs Losses"
+msgstr ""
+
+#: app/templates/dashboard.html:11
+msgid "Points vs Points Against"
+msgstr ""
+
+#: app/templates/dashboard.html:12
+msgid "Ratio"
+msgstr ""
+
+#: app/templates/dashboard.html:19
+msgid "GLOBAL GAME STATS"
+msgstr ""
+
+#: app/templates/dashboard.html:20 app/templates/dashboard.html:31
+#: app/templates/dashboard.html:42 app/templates/dashboard.html:53
+#: app/templates/friend_profile.html:28 app/templates/profile.html:30
+msgid "Games played:"
+msgstr ""
+
+#: app/templates/dashboard.html:30
+msgid "CLASSIC GAME STATS"
+msgstr ""
+
+#: app/templates/dashboard.html:41
+msgid "BOT GAME STATS"
+msgstr ""
+
+#: app/templates/dashboard.html:52
+msgid "TOURNAMENT GAME STATS"
+msgstr ""
+
+#: app/templates/friend_profile.html:5
+msgid "Friend's Profile"
+msgstr ""
+
+#: app/templates/friend_profile.html:12
+msgid "FRIEND'S PROFILE"
+msgstr ""
+
+#: app/templates/friend_profile.html:16
+msgid "Friend Avatar"
+msgstr ""
+
+#: app/templates/friend_profile.html:18 app/templates/friends.html:26
+#: app/templates/profile.html:19 app/templates/settings.html:27
+msgid "Default Avatar"
+msgstr ""
+
+#: app/templates/friend_profile.html:22 app/templates/profile.html:23
+msgid "Pseudo:"
+msgstr ""
+
+#: app/templates/friend_profile.html:24 app/templates/friend_profile.html:26
+#: app/templates/friends.html:34 app/templates/friends.html:36
+#: app/templates/profile.html:26 app/templates/profile.html:28
+msgid "Status:"
+msgstr ""
+
+#: app/templates/friend_profile.html:24 app/templates/friends.html:34
+#: app/templates/profile.html:26
+msgid "Online"
+msgstr ""
+
+#: app/templates/friend_profile.html:26 app/templates/friends.html:36
+#: app/templates/profile.html:28
+msgid "Offline"
+msgstr ""
+
+#: app/templates/friend_profile.html:29 app/templates/profile.html:31
+msgid "Wins:"
+msgstr ""
+
+#: app/templates/friend_profile.html:30 app/templates/profile.html:32
+msgid "Losses:"
+msgstr ""
+
+#: app/templates/friend_profile.html:41 app/templates/profile.html:43
+msgid "MATCH HISTORY"
+msgstr ""
+
+#: app/templates/friend_profile.html:52 app/templates/profile.html:54
+#: app/templates/tournament_play.html:5
+msgid "Tournament game"
+msgstr ""
+
+#: app/templates/friend_profile.html:59 app/templates/profile.html:61
+msgid "No games played yet"
+msgstr ""
+
+#: app/templates/friends.html:6 app/templates/index.html:36
+#: app/templates/profile.html:6
+msgid "Profile"
+msgstr ""
+
+#: app/templates/friends.html:14
+msgid "FRIENDS"
+msgstr ""
+
+#: app/templates/friends.html:41
+msgid "Friend's profile"
+msgstr ""
+
+#: app/templates/friends.html:46
+msgid "Remove"
+msgstr ""
+
+#: app/templates/friends.html:52
+msgid "No friends yet"
+msgstr ""
+
+#: app/templates/friends.html:65
+msgid "ADD FRIENDS"
+msgstr ""
+
+#: app/templates/friends.html:72
+msgid "Pseudo"
+msgstr ""
+
+#: app/templates/friends.html:74
+msgid "Add"
+msgstr ""
+
+#: app/templates/friends.html:95
+msgid "INVITATIONS"
+msgstr ""
+
+#: app/templates/friends.html:103
+msgid "wants to be your friend."
+msgstr ""
+
+#: app/templates/friends.html:108
+msgid "Accept"
+msgstr ""
+
+#: app/templates/friends.html:113
+msgid "Decline"
+msgstr ""
+
+#: app/templates/friends.html:120
+msgid "No invitations"
+msgstr ""
+
+#: app/templates/game.html:5 app/templates/index.html:27
+msgid "Game"
+msgstr ""
+
+#: app/templates/game.html:12
+msgid "MANUAL"
+msgstr ""
+
+#: app/templates/game.html:16
+msgid "Pongows Player's Manual"
+msgstr ""
+
+#: app/templates/game.html:17
+msgid "NAME"
+msgstr ""
+
+#: app/templates/game.html:18
+msgid "our version of the pong retro game"
+msgstr ""
+
+#: app/templates/game.html:25
+msgid "DESCRIPTION"
+msgstr ""
+
+#: app/templates/game.html:26 app/templates/game.html:29
+msgid "The"
+msgstr ""
+
+#: app/templates/game.html:26
+msgid ""
+"function is a simple tennis like game. It takes two paddles and a ball. The "
+"goal is to defeat your opponent by being the first one to gain 05 points. A "
+"player gets a point once the opponent misses the ball."
+msgstr ""
+
+#: app/templates/game.html:28
+msgid "RETURN VALUE"
+msgstr ""
+
+#: app/templates/game.html:29
+msgid ""
+"function returns the number of points in the string pointed by each player’s "
+"name."
+msgstr ""
+
+#: app/templates/game.html:31
+msgid "MOVEMENTS"
+msgstr ""
+
+#: app/templates/game.html:32
+msgid "To move the paddle, the left player will use"
+msgstr ""
+
+#: app/templates/game.html:32
+msgid "(up)"
+msgstr ""
+
+#: app/templates/game.html:32 app/templates/game.html:34
+msgid "and"
+msgstr ""
+
+#: app/templates/game.html:33
+msgid "(down)"
+msgstr ""
+
+#: app/templates/game.html:33
+msgid "and the right player will use"
+msgstr ""
+
+#: app/templates/game.html:34
+msgid "up arrow (up)"
+msgstr ""
+
+#: app/templates/game.html:34
+msgid "down arrow (down)"
+msgstr ""
+
+#: app/templates/game.html:36
+msgid "SEE ALSO"
+msgstr ""
+
+#: app/templates/game.html:37
+msgid "tournament"
+msgstr ""
+
+#: app/templates/game.html:39
+msgid "Classic"
+msgstr ""
+
+#: app/templates/game.html:42
+msgid "Bot"
+msgstr ""
+
+#: app/templates/game.html:45 app/templates/tournament.html:6
+msgid "Tournament"
+msgstr ""
+
+#: app/templates/index.html:26
+msgid "Game Icon"
+msgstr ""
+
+#: app/templates/index.html:31
+msgid "Dashboard Icon"
+msgstr ""
+
+#: app/templates/index.html:35
+msgid "Profile Icon"
+msgstr ""
+
+#: app/templates/index.html:39
+msgid "Friends Icon"
+msgstr ""
+
+#: app/templates/index.html:40
+msgid "Friends"
+msgstr ""
+
+#: app/templates/index.html:43
+msgid "Settings Icon"
+msgstr ""
+
+#: app/templates/index.html:44 app/templates/index.html:86
+#: app/templates/settings.html:5
+msgid "Settings"
+msgstr ""
+
+#: app/templates/index.html:47
+msgid "Log out Icon"
+msgstr ""
+
+#: app/templates/index.html:51
+msgid "Log out"
+msgstr ""
+
+#: app/templates/index.html:58
+msgid "Sign in Icon"
+msgstr ""
+
+#: app/templates/index.html:59 app/templates/sign_in.html:6
+msgid "Sign In"
+msgstr ""
+
+#: app/templates/index.html:62
+msgid "Sign up Icon"
+msgstr ""
+
+#: app/templates/index.html:63 app/templates/sign_up.html:6
+msgid "Sign Up"
+msgstr ""
+
+#: app/templates/index.html:89
+msgid "Language"
+msgstr ""
+
+#: app/templates/profile.html:13
+msgid "MY PROFILE"
+msgstr ""
+
+#: app/templates/profile.html:17 app/templates/settings.html:25
+msgid "User Avatar"
+msgstr ""
+
+#: app/templates/profile.html:24
+msgid "Email:"
+msgstr ""
+
+#: app/templates/settings.html:11
+msgid "SETTINGS"
+msgstr ""
+
+#: app/templates/settings.html:23
+msgid "Change Avatar"
+msgstr ""
+
+#: app/templates/settings.html:32
+msgid "Change avatar"
+msgstr ""
+
+#: app/templates/settings.html:35
+msgid "Update Avatar"
+msgstr ""
+
+#: app/templates/settings.html:39
+msgid "Delete avatar"
+msgstr ""
+
+#: app/templates/settings.html:46
+msgid "Change Pseudo"
+msgstr ""
+
+#: app/templates/settings.html:50
+msgid "Change pseudo"
+msgstr ""
+
+#: app/templates/settings.html:54 app/templates/settings.html:55
+#: app/templates/settings.html:72 app/templates/settings.html:73
+#: app/templates/sign_in.html:22 app/templates/sign_up.html:26
+msgid "Password"
+msgstr ""
+
+#: app/templates/settings.html:57
+msgid "Update Pseudo"
+msgstr ""
+
+#: app/templates/settings.html:64
+msgid "Change Email"
+msgstr ""
+
+#: app/templates/settings.html:68
+msgid "Change email"
+msgstr ""
+
+#: app/templates/settings.html:75
+msgid "Update Email"
+msgstr ""
+
+#: app/templates/settings.html:82
+msgid "Change Password"
+msgstr ""
+
+#: app/templates/settings.html:86
+msgid "New Password"
+msgstr ""
+
+#: app/templates/settings.html:87
+msgid "New password"
+msgstr ""
+
+#: app/templates/settings.html:90
+msgid "Confirm New Password"
+msgstr ""
+
+#: app/templates/settings.html:91
+msgid "Confirm new password"
+msgstr ""
+
+#: app/templates/settings.html:94
+msgid "Current Password"
+msgstr ""
+
+#: app/templates/settings.html:95
+msgid "Current password"
+msgstr ""
+
+#: app/templates/settings.html:97
+msgid "Update Password"
+msgstr ""
+
+#: app/templates/settings.html:103
+msgid "Delete my data and my account"
+msgstr ""
+
+#: app/templates/settings.html:106
+msgid "Delete"
+msgstr ""
+
+#: app/templates/sign_in.html:12
+msgid "SIGN IN"
+msgstr ""
+
+#: app/templates/sign_in.html:18 app/templates/sign_up.html:22
+msgid "Email address"
+msgstr ""
+
+#: app/templates/sign_in.html:19 app/templates/sign_up.html:23
+msgid "Enter your email"
+msgstr ""
+
+#: app/templates/sign_in.html:23
+msgid "Enter your password"
+msgstr ""
+
+#: app/templates/sign_in.html:25
+msgid "Login"
+msgstr ""
+
+#: app/templates/sign_up.html:12
+msgid "SIGN UP"
+msgstr ""
+
+#: app/templates/sign_up.html:18
+msgid "Username"
+msgstr ""
+
+#: app/templates/sign_up.html:19
+msgid "Choose a username"
+msgstr ""
+
+#: app/templates/sign_up.html:27
+msgid "Create a password"
+msgstr ""
+
+#: app/templates/sign_up.html:30
+msgid "Confirm Password"
+msgstr ""
+
+#: app/templates/sign_up.html:31
+msgid "Confirm password"
+msgstr ""
+
+#: app/templates/sign_up.html:33
+msgid "Create Account"
+msgstr ""
+
+#: app/templates/tournament.html:13
+msgid "TOURNAMENT"
+msgstr ""
+
+#: app/templates/tournament.html:18
+msgid "What is that?"
+msgstr ""
+
+#: app/templates/tournament.html:19
+msgid ""
+"A tournament requires 4 or 8 players to take place, where each player will "
+"choose their own alias to participate. The one who wins all their games will "
+"be the lucky winner; one defeat and it's over. Good luck, pong lovers!"
+msgstr ""
+
+#: app/templates/tournament.html:20
+msgid ""
+"The tournament will take place on the host's account and everyone will have "
+"to register on their own account."
+msgstr ""
+
+#: app/templates/tournament.html:31
+msgid "My tournaments"
+msgstr ""
+
+#: app/templates/tournament.html:34
+msgid "players"
+msgstr ""
+
+#: app/templates/tournament.html:36 app/templates/tournament_matches.html:5
+msgid "Tournament's matches"
+msgstr ""
+
+#: app/templates/tournament.html:40
+msgid "You are not hosting any tournaments."
+msgstr ""
+
+#: app/templates/tournament.html:45
+msgid "Host a tournament?"
+msgstr ""
+
+#: app/templates/tournament.html:49 app/templates/tournament.html:81
+msgid "Alias"
+msgstr ""
+
+#: app/templates/tournament.html:52
+msgid "Number of players"
+msgstr ""
+
+#: app/templates/tournament.html:62
+msgid "Create Tournament"
+msgstr ""
+
+#: app/templates/tournament.html:67
+msgid "Join a tournament?"
+msgstr ""
+
+#: app/templates/tournament.html:71
+msgid "Select Tournament"
+msgstr ""
+
+#: app/templates/tournament.html:73
+msgid "Choose a tournament"
+msgstr ""
+
+#: app/templates/tournament.html:75
+msgid "Players"
+msgstr ""
+
+#: app/templates/tournament.html:77
+msgid "No tournaments available."
+msgstr ""
+
+#: app/templates/tournament.html:84
+msgid "Join Tournament"
+msgstr ""
+
+#: app/templates/tournament_matches.html:11
+msgid "MATCHES"
+msgstr ""
+
+#: app/templates/tournament_matches.html:17
+msgid "Start"
+msgstr ""
+
+#: app/templates/tournament_play.html:12
+msgid "Tournament Game"
+msgstr ""
+
+#: app/views.py:94
+msgid "Invalid email or password."
+msgstr ""
+
+#: app/views.py:272
+msgid "You are already hosting an unfinished tournament."
+msgstr ""
+
+#: app/views.py:292
+msgid "The tournament does not exist."
+msgstr ""
+
+#: app/views.py:296
+msgid "You are already registered in this tournament."
+msgstr ""
+
+#: app/views.py:300
+msgid "This alias is already taken in this tournament."
+msgstr ""
+
+#: app/views.py:549
+msgid "Cannot change avatar"
+msgstr ""
+
+#: app/views.py:560
+msgid "No avatar to delete"
+msgstr ""
+
+#: app/views.py:567
+msgid "Cannot change pseudo"
+msgstr ""
+
+#: app/views.py:577
+msgid "Cannot change email"
+msgstr ""
+
+#: app/views.py:590
+msgid "Cannot change password"
+msgstr ""

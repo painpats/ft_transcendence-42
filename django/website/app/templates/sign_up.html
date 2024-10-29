@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up" %} - PONGOWS{% endblock %}
+
+{% block content %}
+<div class="container win95-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 win95-box">
+            <h2 class="title-bar text-center">{% trans "SIGN UP" %}</h2>
+            
+            <div class="tab-content">
+                <form method="post" action="{% url 'sign_up' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">{% trans "Username" %}</label>
+                        <input type="text" class="form-control" id="username" name="username" maxlength="15" placeholder="{% trans 'Choose a username' %}" value="{{ form.username.value|default_if_none:'' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{% trans "Email address" %}</label>
+                        <input type="email" class="form-control" id="email" name="email" maxlength="255" placeholder="{% trans 'Enter your email' %}" value="{{ form.email.value|default_if_none:'' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password1">{% trans "Password" %}</label>
+                        <input type="password" class="form-control" id="password1" name="password1" placeholder="{% trans 'Create a password' %}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">{% trans "Confirm Password" %}</label>
+                        <input type="password" class="form-control" id="password2" name="password2" placeholder="{% trans 'Confirm password' %}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">{% trans "Create Account" %}</button>
+                </form>
+                <form method="post" action="{% url 'auth_42' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-dark btn-block" action="{% url 'auth_42' %}">Auth 42</button>
+                </form>
+                {% if messages %}
+                    <div class="alert alert-danger">
+                        {% for message in messages %}
+                            <div>{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
