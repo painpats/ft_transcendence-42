@@ -41,11 +41,11 @@ Sign in / Sign up frames:
 
 Game frame:
 
-![Game](path/to/your/game.png)
+![Game](path/to/your/Assets/game.png)
 
 Friends frame:
 
-![Friends](path/to/your/friends.png)
+![Friends](path/to/your/Assets/friends.png)
 
 
 ## Installation
